@@ -44,3 +44,7 @@ print(f"Block 5: Average length of sequences: {sum(lengths)/len(my_seqs)}\n")
 import numpy as np 
 print(f"Block 6: Average length of sequences: {np.mean(lengths)}\n")
 ##
+
+## Save as multi fasta!
+with open("test.fasta", "w") as f:
+    [f.write(f">{i[0]}\n{i[1]}\n") for i in my_seqs]

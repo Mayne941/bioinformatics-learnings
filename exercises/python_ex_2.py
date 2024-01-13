@@ -47,10 +47,9 @@ def sim_score(seqs):
     
     seq_len = len(just_seqs[0])
     matching_nts = 0
-    for idx in range(len(seq_len)):
+    for idx in range(seq_len):
         if just_seqs[0][idx] == just_seqs[1][idx]:
             matching_nts += 1
-
     print(f"Similarity (% matching nts): {(matching_nts/seq_len) * 100}")
 
 
@@ -62,5 +61,5 @@ if __name__ == "__main__":
         }
     frequencies = nucl_frequency(seqs)
     draw_graph(frequencies)
-    sim_score(frequencies)
+    sim_score(seqs)
 ## END 3 \
