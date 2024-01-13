@@ -35,9 +35,25 @@ def nucl_frequency(seqs):
                 g += 1
         frequencies[key] = {"A": a, "T": t, "C": c, "G": g}
         print(f"Frequencies for sequence {key}: {frequencies[key]}")
+        print(f"CG Ratio: {((c+g)/(a+t+c+g))*100}")
     return frequencies
 ## END 2 \
+
+def sim_score(seqs):
+    '''Assume seqs are same len and aligned'''
+    just_seqs = []
+    for _, v in seqs.items():
+        just_seqs.append(v)
     
+    seq_len = len(just_seqs[0])
+    matching_nts = 0
+    for idx in range(len(seq_len)):
+        if just_seqs[0][idx] == just_seqs[1][idx]:
+            matching_nts += 1
+
+    print(f"Similarity (% matching nts): {(matching_nts/seq_len) * 100}")
+
+
 ## 3:
 if __name__ == "__main__":
     seqs = {
@@ -46,4 +62,5 @@ if __name__ == "__main__":
         }
     frequencies = nucl_frequency(seqs)
     draw_graph(frequencies)
+    sim_score(frequencies)
 ## END 3 \
