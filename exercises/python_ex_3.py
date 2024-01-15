@@ -1,9 +1,9 @@
 from Bio import Entrez
 import os
 
-def DownloadGenBankFile(GenomeSeqFile, OutFile, SeqIDLists, email):
-    if not os.path.exists(GenomeSeqFile):
-        os.makedirs(GenomeSeqFile)
+def DownloadGenBankFile(GenomeSeqDir, OutFile, SeqIDLists, email):
+    if not os.path.exists(GenomeSeqDir):
+        os.makedirs(GenomeSeqDir)
 
     Entrez.email = email
     try:
@@ -12,8 +12,8 @@ def DownloadGenBankFile(GenomeSeqFile, OutFile, SeqIDLists, email):
         raise SystemExit(f"Failed to pull Genbank Data from NCBI Entrez with exception: {e}"
                          f"This is usually a temporary problem due to NCBI server down time, try again in a few minutes!")
 
-    with open(f"{GenomeSeqFile}/{OutFile}", "w") as GenomeSeqFile_handle:
-        GenomeSeqFile_handle.write(handle.read())
+    with open(f"{GenomeSeqDir}/{OutFile}", "w") as GenomeSeqDir_handle:
+        GenomeSeqDir_handle.write(handle.read())
 
     handle.close()
 
