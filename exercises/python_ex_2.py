@@ -10,14 +10,14 @@ def better_nucl_freq(seqs):
     for key, value in seqs.items():
         frequencies[key] = Counter(value)
 
-## 1: 
+## 3: 
 def draw_graph(data):
     fig = px.bar(data, 
                  barmode="group", 
                  labels={"index": "Base", "value": "Frequency"}, 
                  title="Nucleotide frequencies")
     fig.write_image("mean_nucleotide_freqs.png")
-## END 1 \
+## END 3 \
 
 ## 2:
 def nucl_frequency(seqs):
@@ -38,7 +38,7 @@ def nucl_frequency(seqs):
     return frequencies
 ## END 2 \
     
-## 3:
+## 1:
 if __name__ == "__main__":
     seqs = {
         "HepC_AF009606_1a": "GCCAGCCCCCTGATGGGGGCGACACTCCACCATGAATCACTCCCCTGTGAGGAACTACTGTCTTCACGCAGAAAG",
@@ -46,4 +46,4 @@ if __name__ == "__main__":
         }
     frequencies = nucl_frequency(seqs)
     draw_graph(frequencies)
-## END 3 \
+## END 1 \
