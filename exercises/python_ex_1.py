@@ -32,7 +32,7 @@ sum_lens = 0
 for length in lengths:
     sum_lens = sum_lens + length
 
-mean_seq_len = sum_lens / seq_len
+mean_seq_len = sum_lens / len(my_seqs)
 print(f"Block 4: Average length of sequences: {mean_seq_len}\n")
 ## END 4 \
 
